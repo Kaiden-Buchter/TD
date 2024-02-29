@@ -12,12 +12,13 @@ const background = new Image();
 background.onload = () => {
   animate();
 };
-background.src = "Images/towerDefense.png";
+background.src = "Images/towerDefense.png"
 
 class Enemy {
-  constructor({ position = { x: 0, y: 0 } }) {
+  constructor({ position = { x: 0, y: 0 }, frames = { max: 1 }}) {
     this.position = position;
-    this.width = 100;
+    this.frames = {...frames, val: 0, elapsed: 0}
+    this.width = 100 / this.frames.max;
     this.height = 100;
     this.waypointIndex = 0;
     this.center = {
@@ -61,6 +62,7 @@ for (let i = 1; i < 10; i++) {
   enemies.push(
     new Enemy({
       position: { x: waypoints[0].x - xOffset, y: waypoints[0].y },
+      frames: { max: 7 }
     })
   );
 }
