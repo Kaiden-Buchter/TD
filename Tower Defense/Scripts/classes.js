@@ -28,7 +28,6 @@ class PlacementTile {
 class Enemy {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;
-    this.frames = { ...frames, val: 0, elapsed: 0 };
     this.width = 100;
     this.height = 100;
     this.waypointIndex = 0;
